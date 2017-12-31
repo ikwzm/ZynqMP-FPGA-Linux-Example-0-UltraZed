@@ -1,0 +1,26 @@
+/dts-v1/;
+/ {
+	fragment@0 {
+		target-path = "/amba_pl@0";
+		#address-cells = <2>;
+		#size-cells = <2>;
+
+		__overlay__ {
+			#address-cells = <2>;
+			#size-cells = <2>;
+
+			uio0: uio@80000000 {
+				compatible = "generic-uio";
+				reg = <0x0 0x80000000 0x0 0x10000>;
+	                };
+			uio1: uio@80010000 {
+				compatible = "generic-uio";
+				reg = <0x0 0x80010000 0x0 0x10000>;
+	                };
+			uio2: uio@80020000 {
+				compatible = "generic-uio";
+				reg = <0x0 0x80020000 0x0 0x10000>;
+	                };
+                };
+	} ;
+} ;

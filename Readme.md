@@ -12,14 +12,14 @@ ZynqMP-FPGA-Linux Example (0) binary and test code for UltraZed-EG-IOCC
 
 fpga'password is "fpga".
 
-```
+```console
 debian-fpga login: fpga
 Password:
 fpga@debian-fpga:~$
 ```
 ## Download this repository
 
-```shell
+```console
 fpga@debian-fpga:~$ mkdir examples
 fpga@debian-fpga:~$ cd examples
 fpga@debian-fpga:~/examples$ git clone https://github.com/ikwzm/ZynqMP-FPGA-Linux-Example-0-UltraZed gpio
@@ -31,7 +31,7 @@ fpga@debian-fpga:~/examples/gpio$
 
 ### Convert to Binary file from Bitstream file
 
-```shell
+```console
 fpga@debian-fpga:~/examples/gpio$ python3 fpga-bit-to-bin.py -f design_1_wrapper.bit design_1_wrapper.bin
 Design name: b'design_1_wrapper;UserID=0XFFFFFFFF;Version=2017.2.1\x00'
 Full bitstream
@@ -45,24 +45,24 @@ Writing data...
 
 ### Copy FPGA Binary file to /lib/firmware
 
-```shell
+```console
 fpga@debian-fpga:~/examples/gpio$ sudo cp design_1_wrapper.bin /lib/firmware
 ```
 
 ### Configuration FPGA with Device Tree Overlay
 
-```shell
+```console
 fpga@debian-fpga:~/examples/gpio$ dtc -I dts -O dtb -o fpga-load.dtb fpga-load.dts
-fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree-overlays/fpga
+fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree/overlays/fpga
 fpga@debian-fpga:~/examples/gpio$ sudo cp fpga-load.dtb /config/device-tree/overlays/fpga/dtbo
 [ 1462.560122] fpga_manager fpga0: writing design_1_wrapper.bin to Xilinx ZynqMP FPGA Manager
 ```
 
 ### Configuraiton PL Clock 0
 
-```shell
+```console
 fpga@debian-fpga:~/examples/gpio$ dtc -I dts -O dtb -o fclk0-zynqmp.dtb fclk0-zynqmp.dts
-fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree-overlays/fclk0
+fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree/overlays/fclk0
 fpga@debian-fpga:~/examples/gpio$ sudo cp fclk0-zynqmp.dtb /config/device-tree/overlays/fclk0/dtbo
 [ 1830.238976] fclkcfg amba:fclk0: driver installed.
 [ 1830.243617] fclkcfg amba:fclk0: device name    : fclk0
@@ -75,7 +75,7 @@ fpga@debian-fpga:~/examples/gpio$ sudo cp fclk0-zynqmp.dtb /config/device-tree/o
 
 ### Install Uio Device Tree
 
-```shell
+```console
 fpga@debian-fpga:~/examples/gpio$ dtc -I dts -O dtb -o uio.dtb uio.dts
 fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree/overlays/uio
 fpga@debian-fpga:~/examples/gpio$ sudo cp uio.dtb /config/device-tree/overlays/uio/dtbo
@@ -83,7 +83,7 @@ fpga@debian-fpga:~/examples/gpio$ sudo cp uio.dtb /config/device-tree/overlays/u
 
 ## Flash the LED 
 
-```shell
+```console
 fpga@debian-fpga:~/examples/gpio$ sudo python3 led_on.py
 ```
 

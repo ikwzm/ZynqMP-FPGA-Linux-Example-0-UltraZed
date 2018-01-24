@@ -87,3 +87,14 @@ fpga@debian-fpga:~/examples/gpio$ sudo cp uio.dtb /config/device-tree/overlays/u
 fpga@debian-fpga:~/examples/gpio$ sudo python3 led_on.py
 ```
 
+## Clean up
+
+```console
+fpga@debian-fpga:~/examples/gpio$ sudo rmdir /config/device-tree/overlays/uio
+fpga@debian-fpga:~/examples/gpio$ sudo rmdir /config/device-tree/overlays/fclk0
+[ 2149.037235] fclkcfg amba:fclk0: change rate    : 992064
+[ 2149.042497] fclkcfg amba:fclk0: change enable  : 0
+[ 2149.047353] fclkcfg amba:fclk0: driver unloaded
+fpga@debian-fpga:~/examples/gpio$ sudo rmdir /config/device-tree/overlays/fpga
+```
+

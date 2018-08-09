@@ -17,12 +17,12 @@ debian-fpga login: fpga
 Password:
 fpga@debian-fpga:~$
 ```
-## Download this repository
+## Download this repository(tag=v2017.3)
 
 ```console
 fpga@debian-fpga:~$ mkdir examples
 fpga@debian-fpga:~$ cd examples
-fpga@debian-fpga:~/examples$ git clone https://github.com/ikwzm/ZynqMP-FPGA-Linux-Example-0-UltraZed gpio
+fpga@debian-fpga:~/examples$ git clone -b v2017.3 https://github.com/ikwzm/ZynqMP-FPGA-Linux-Example-0-UltraZed gpio
 fpga@debian-fpga:~/examples$ cd gpio
 fpga@debian-fpga:~/examples/gpio$
 ```

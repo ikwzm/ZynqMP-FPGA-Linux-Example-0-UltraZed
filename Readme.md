@@ -63,6 +63,21 @@ fpga@debian-fpga:~/examples/gpio$ sudo cp design_1_wrapper.bin /lib/firmware
 
 ## Configuration FPGA with Device Tree Overlay
 
+### For v2017.3
+
+```console
+fpga@debian-fpga:~/examples/gpio$ dtc -I dts -O dtb -o fpga-load.dtb fpga-load.dts
+fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree/overlays/fpga
+fpga@debian-fpga:~/examples/gpio$ sudo cp fpga-load.dtb /config/device-tree/overlays/fpga/dtbo
+[ 1462.560122] fpga_manager fpga0: writing design_1_wrapper.bin to Xilinx ZynqMP FPGA Manager
+```
+
+### For v2018.2
+
+```console
+fpga@debian-fpga:~/examples/gpio$ echo 20 >/sys/class/fpga_manager/fpga0/flags
+```
+
 ```console
 fpga@debian-fpga:~/examples/gpio$ dtc -I dts -O dtb -o fpga-load.dtb fpga-load.dts
 fpga@debian-fpga:~/examples/gpio$ sudo mkdir /config/device-tree/overlays/fpga

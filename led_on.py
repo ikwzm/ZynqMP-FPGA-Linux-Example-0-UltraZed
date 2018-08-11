@@ -5,7 +5,7 @@ import signal
 
 class  LED:
     def __init__(self):
-        self.uio  = Uio('uio1')
+        self.uio  = Uio('uio2')
         self.regs = self.uio.regs()
         self.regs.write_word(4, 0)
         self.pattern = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02]
